@@ -23,7 +23,7 @@ jobs:
       - name: Setup Yarn Berry
         run: |
           curl -o- -L https://yarnpkg.com/install.sh | bash
-          echo "::add-path::${HOME}/.yarn/bin"
+          echo "YARN_BIN_PATH=${HOME}/.yarn/bin" >> $GITHUB_ENV
           yarn set version berry
     
       # Setup Node.js environment
