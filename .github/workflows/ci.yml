@@ -15,24 +15,20 @@ jobs:
         node-version: [18.x, 20.x]
 
     steps:
-      # Checkout the repository
       - name: Checkout
         uses: actions/checkout@v4.1.7
 
-      # Setup Yarn (specifically for Yarn Berry)
       - name: Setup Yarn Berry
         run: |
           curl -o- -L https://yarnpkg.com/install.sh | bash
           yarn set version berry
 
-      # Setup Node.js environment
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      # Cache Yarn dependencies
       - name: Cache Yarn
         uses: actions/cache@v3
         with:
@@ -41,14 +37,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      # Install dependencies using Yarn Berry
       - name: Install dependencies
         run: yarn install
 
-      # Run tests
       - name: Run tests
         run: yarn test --passWithNoTests
 
-      # Build the project
       - name: Build project
         run: yarn build
