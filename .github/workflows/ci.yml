@@ -19,11 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.7
 
-      # Setup Yarn (Berry version)
-      - name: Setup Yarn
-        uses: threeal/setup-yarn-action@v2.0.0
-        with:
-          version: 'berry'
+      # Setup Yarn (specifically for Yarn Berry)
+      - name: Setup Yarn Berry
+        run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+          echo "::add-path::${HOME}/.yarn/bin"
+          yarn set version berry
     
       # Setup Node.js environment
       - name: Set up Node.js ${{ matrix.node-version }}
