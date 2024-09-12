@@ -16,19 +16,30 @@ jobs:
 
     steps:
       # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
 
-      # Setup Node.js environment and corepack to use Yarn Berry
+      # Setup Yarn (Berry version)
+      - name: Setup Yarn
+        uses: threeal/setup-yarn-action@v2.0.0
+        with:
+          version: 'berry'
+    
+      # Setup Node.js environment
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      # Enable Corepack to use Yarn Berry
-      - name: Enable Corepack
-        run: corepack enable
+      # Cache Yarn dependencies
+      - name: Cache Yarn
+        uses: actions/cache@v3
+        with:
+          path: .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       # Install dependencies using Yarn Berry
       - name: Install dependencies
