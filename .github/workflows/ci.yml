@@ -2,11 +2,9 @@ name: CI Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, develop]
   pull_request:
-    branches:
-      - main
+    branches: [main, develop]
 
 jobs:
   build:
@@ -34,7 +32,7 @@ jobs:
 
       # Install dependencies using Yarn Berry
       - name: Install dependencies
-        run: yarn
+        run: yarn install
 
       # Run tests
       - name: Run tests
