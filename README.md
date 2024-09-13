@@ -3,7 +3,8 @@
 2024 대동 FE입니다
 
 ### 사용할 스택
-- react(vite)
+- vite
+- react
 - typescript
 - axios
 - react query
