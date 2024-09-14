@@ -4,10 +4,12 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
-const MESSAGE = process.env.DISCORD_MESSAGE || '배포 상태가 업데이트되었습니다.';
+const DEPLOYED_URL = process.env.DEPLOYED_URL || 'https://your-deployed-app-url.com';
+const MESSAGE = process.env.DISCORD_MESSAGE || `🚀 새로운 배포가 완료되었습니다! URL: ${DEPLOYED_URL}`;
 
 client.once('ready', () => {
   console.log('Discord bot is ready!');
+  
   const channel = client.channels.cache.get(CHANNEL_ID);
   if (channel) {
     channel.send(MESSAGE)
