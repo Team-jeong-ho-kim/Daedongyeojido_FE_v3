@@ -46,15 +46,6 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Send deployment notification
-        if: always()
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DEPLOYED_URL: ${{ secrets.DEPLOYED_URL }} # 배포된 URL
-        uses: Ilshidur/action-discord@master
-        with:
-          args: '🚀 The project {{ EVENT_PAYLOAD.repository.full_name }} is being deployed. Check it out here: ${{ env.DEPLOYED_URL }}'
-
       - name: Send success Discord notification
         if: success()
         env:
@@ -62,7 +53,7 @@ jobs:
           DEPLOYED_URL: ${{ secrets.DEPLOYED_URL }} # 배포된 URL
         uses: Ilshidur/action-discord@master
         with:
-          args: '🎉 {{ EVENT_PAYLOAD.repository.full_name }} 은 성공적으로 지속적 배포되었습니다!! 이 URL에서 배포된 웹을 확인하세요: ${{ env.DEPLOYED_URL }}'
+          args: '# 🎉 배포 완료!\n\n축하합니다! **{{ EVENT_PAYLOAD.repository.full_name }}** 프로젝트가 성공적으로 배포되었습니다!! \n이 URL에서 배포된 웹을 확인하세요: [여기](${{ env.DEPLOYED_URL }})'
 
       - name: Send failure Discord notification
         if: failure()
@@ -70,4 +61,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: '😢 {{ EVENT_PAYLOAD.repository.full_name }} 은 배포에 실패했습니다...'
+          args: '# 😢 배포 실패.. **{{ EVENT_PAYLOAD.repository.full_name }}** 은 배포에 실패했습니다...'
