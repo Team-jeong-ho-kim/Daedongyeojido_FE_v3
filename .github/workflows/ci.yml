@@ -62,7 +62,7 @@ jobs:
           DEPLOYED_URL: ${{ secrets.DEPLOYED_URL }} # 배포된 URL
         uses: Ilshidur/action-discord@master
         with:
-          args: '🎉 {{ EVENT_PAYLOAD.repository.full_name }} 은 성공적으로 배포되었습니다!! 이 URL에서 배포된 웹을 확인하세요: ${{ env.DEPLOYED_URL }}'
+          args: '🎉 {{ EVENT_PAYLOAD.repository.full_name }} 은 성공적으로 지속적 배포되었습니다!! 이 URL에서 배포된 웹을 확인하세요: ${{ env.DEPLOYED_URL }}'
 
       - name: Send failure Discord notification
         if: failure()
