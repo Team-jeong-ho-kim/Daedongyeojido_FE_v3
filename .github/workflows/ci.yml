@@ -50,7 +50,7 @@ jobs:
           args: |
             # 🎉 배포 완료!
             
-            축하합니다! **{{ github.repository }}** 프로젝트가 성공적으로 AWS Amplify에 배포되었습니다!!
+            축하합니다! **{{ EVENT_PAYLOAD.repository.full_name }}** 프로젝트가 성공적으로 AWS Amplify에 배포되었습니다!!
             이 URL에서 배포된 웹을 확인하세요: [여기](${{ env.DEPLOYED_URL }})
 
       - name: Send failure Discord notification
@@ -62,4 +62,4 @@ jobs:
           args: |
             # 😢 배포 실패..
             
-            **{{ github.repository }}** AWS Amplify 배포에 실패했습니다...
+            **{{ EVENT_PAYLOAD.repository.full_name }}** AWS Amplify 배포에 실패했습니다...
