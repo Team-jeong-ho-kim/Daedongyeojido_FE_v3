@@ -27,18 +27,6 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Deploy to Amplify
-        env:
-          AWS_REGION: "ap-northeast-2"
-        run: |
-          yarn dlx @aws-amplify/cli amplify publish --yes
-
-      - name: Check Amplify deployment status
-        env:
-          AWS_REGION: "ap-northeast-2"
-        run: |
-          yarn dlx @aws-amplify/cli amplify status
-
       - name: Send success Discord notification
         if: success()
         env:
