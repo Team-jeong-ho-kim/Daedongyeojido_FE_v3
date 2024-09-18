@@ -29,13 +29,13 @@ jobs:
 
       - name: Deploy to Amplify
         env:
-          AWS_REGION: "ap-northeast-2" # Update to Asia (Seoul) region
+          AWS_REGION: "ap-northeast-2"
         run: |
           yarn dlx @aws-amplify/cli amplify publish --yes
 
       - name: Check Amplify deployment status
         env:
-          AWS_REGION: "ap-northeast-2" # Update to Asia (Seoul) region
+          AWS_REGION: "ap-northeast-2"
         run: |
           yarn dlx @aws-amplify/cli amplify status
 
