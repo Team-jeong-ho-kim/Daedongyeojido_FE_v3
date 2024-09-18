@@ -29,14 +29,14 @@ jobs:
 
       - name: Deploy to Amplify
         env:
-          AWS_REGION: "ap-northeast-2"
+          AWS_REGION: "us-east-1"
         run: |
           npm install -g @aws-amplify/cli
           amplify publish --yes
 
       - name: Check Amplify deployment status
         env:
-          AWS_REGION: "ap-northeast-2"
+          AWS_REGION: "us-east-1"
         run: |
           amplify status
 
