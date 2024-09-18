@@ -13,18 +13,33 @@ jobs:
         node-version: [20.x]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v4.5.0
+
+      - name: Setup Yarn Berry
+        run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+          yarn set version berry
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Cache Yarn
+        uses: actions/cache@v3
+        with:
+          path: .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Run tests
+        run: yarn test --passWithNoTests
 
       - name: Build project
         run: yarn build
