@@ -44,4 +44,4 @@ set : 프로젝트 세팅
 
 ### 브랜치 전략
 
-github flow
+git flow
