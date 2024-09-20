@@ -13,6 +13,7 @@
 - react-cookie
 - emotion style-components
 - husky
+- react-hot-toast
 
 ### 커밋 규칙
 
