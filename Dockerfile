@@ -1,12 +1,16 @@
-FROM node:18-alpine
+FROM node:alpine AS builder
 
 WORKDIR /app
-
 COPY . .
+RUN yarn install --frozen-lockfile
+RUN yarn build
 
-COPY package.json yarn.lock ./
-RUN yarn install --immutable
+FROM node:alpine
+WORKDIR /app
 
-EXPOSE 5173
+COPY --from=builder /app/build ./build
 
-CMD ["yarn", "dev"]
+RUN yarn global add serve
+
+EXPOSE 3000
+CMD ["serve", "-s", "build", "-l", "3000"]
