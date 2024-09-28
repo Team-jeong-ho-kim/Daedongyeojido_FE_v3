@@ -57,7 +57,6 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["husky", "npm:9.1.6"],\
           ["lint-staged", "npm:15.2.10"],\
-          ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:7f44276b73f36ee0cc25a7f36615ff8b12c171283de87be8069ea89e96b5664ff18363784ffed5cabc4a863f66ea476690d583da3f1f9422dcd66d9b64365b23#npm:18.3.1"],\
           ["react-hot-toast", "virtual:7f44276b73f36ee0cc25a7f36615ff8b12c171283de87be8069ea89e96b5664ff18363784ffed5cabc4a863f66ea476690d583da3f1f9422dcd66d9b64365b23#npm:2.4.1"],\
@@ -17634,7 +17633,7 @@ const RAW_RUNTIME_STATE =
           ["@types/prettier", null],\
           ["eslint", "virtual:7f44276b73f36ee0cc25a7f36615ff8b12c171283de87be8069ea89e96b5664ff18363784ffed5cabc4a863f66ea476690d583da3f1f9422dcd66d9b64365b23#npm:9.10.0"],\
           ["eslint-config-prettier", null],\
-          ["prettier", "npm:3.3.3"],\
+          ["prettier", null],\
           ["prettier-linter-helpers", "npm:1.0.0"],\
           ["synckit", "npm:0.9.1"]\
         ],\
@@ -18330,7 +18329,6 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["husky", "npm:9.1.6"],\
           ["lint-staged", "npm:15.2.10"],\
-          ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:7f44276b73f36ee0cc25a7f36615ff8b12c171283de87be8069ea89e96b5664ff18363784ffed5cabc4a863f66ea476690d583da3f1f9422dcd66d9b64365b23#npm:18.3.1"],\
           ["react-hot-toast", "virtual:7f44276b73f36ee0cc25a7f36615ff8b12c171283de87be8069ea89e96b5664ff18363784ffed5cabc4a863f66ea476690d583da3f1f9422dcd66d9b64365b23#npm:2.4.1"],\
@@ -25218,13 +25216,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/prettier-npm-2.8.8-430828a36c-463ea8f9a0.zip/node_modules/prettier/",\
         "packageDependencies": [\
           ["prettier", "npm:2.8.8"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:3.3.3", {\
-        "packageLocation": "./.yarn/unplugged/prettier-npm-3.3.3-e811f023f3/node_modules/prettier/",\
-        "packageDependencies": [\
-          ["prettier", "npm:3.3.3"]\
         ],\
         "linkType": "HARD"\
       }]\
