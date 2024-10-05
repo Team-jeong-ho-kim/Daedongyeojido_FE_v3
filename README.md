@@ -15,6 +15,7 @@
 - emotion style-components
 - husky
 - react-hot-toast
+- CI/CD
 
 ### 커밋 규칙
 
